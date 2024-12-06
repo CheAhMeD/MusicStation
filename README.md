@@ -14,6 +14,7 @@ https://volumio.com/get-started/
 #### Install Touch Display plugin on Volumio OS
 
 Follow the instructions here:
+
 https://developers.volumio.com/plugins/plugins-overview
 
 #### Connect to the unit (using ssh)
@@ -50,7 +51,7 @@ https://developers.volumio.com/SSH%20Connection
 
 follow the steps in install.sh file and make sure you accepted to run the last step (tinytuya wizard).
 if not run:
-```python
+```bash
   sudo python3 -m tinytuya wizard
 ```
 More info: https://github.com/jasonacox/tinytuya?tab=readme-ov-file#setup-wizard---getting-local-keys
@@ -59,10 +60,10 @@ More info: https://github.com/jasonacox/tinytuya?tab=readme-ov-file#setup-wizard
 ## Deployment
 
 To deploy MusicStation 
-- Make sure you have the required API keys:
-- copy and paste the keys in the file settings.py
+- Make sure you have the required API keys.
+- Copy and paste the keys in the file settings.py
 ```python
-# To change accordingly
+  # To change accordingly
   weather_key  = "OpenWeather_API_KEY_GOES_HERE"  # https://openweathermap.org/api
   weather_city = "OpenWeather_CITY_GOES_HERE"     # format "City,COUNTRYCODE" eg : "Gent,BE"
   open_ai_key  = "OpenAI_API_KEY_GOES_HERE"       # https://openai.com/index/openai-api/
@@ -72,7 +73,6 @@ To deploy MusicStation
   colorful_key = "TUYA_DEVICE_KEY_GOES_HERE"      # Get it after running tinytuya wizard
 ```
 - run the following:
-
 ```bash
   cd $install_directory
   sudo python3 main.py
