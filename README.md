@@ -13,7 +13,7 @@ https://volumio.com/get-started/
 
 #### Install Touch Display plugin on Volumio OS
 
-Follow instructions:
+Follow the instructions here:
 https://developers.volumio.com/plugins/plugins-overview
 
 #### Connect to the unit (using ssh)
