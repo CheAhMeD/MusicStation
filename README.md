@@ -98,7 +98,7 @@ More info: https://github.com/jasonacox/tinytuya?tab=readme-ov-file#setup-wizard
 ## Deployment
 
 To deploy MusicStation 
-- Make sure you have the required API keys.
+**- Make sure you have the required API keys.**
 - Copy and paste the keys in the file settings.py
 ```python
   # To change accordingly
