@@ -12,6 +12,43 @@
 A RaspberryPi 4 powered simple yet smart music station.
 
 
+## System Overview
+#### Architecture
+
+![arch](screenshots/music_station_arch.png)
+
+#### Used Hardware
+
+You can use the minimal harware required to replicate the MusicStation
+
+##### Minimal
+- Raspberry Pi 4:
+  minimum 4Gb.
+- A Touch Screen:
+  Official Raspberry Pi touch screen was used.
+- A USB DAC:
+  Any cheap usb based Dac should work.
+- A microphone (Any jack or usb microphone)
+- An amplifier:
+  I used a custom made Tube Amplifier that I made a couple of years ago. Unfortunately I lost the schematics to it...
+  But any amplifier should work fine with the setup
+- Passive speakers
+- Power supply (12VDC)
+
+##### Optional
+- 12V to 5V DC step down convertor:
+  This is **necessary** if a 12V amplifier is used otherwise you can power the system with a 5V DC power suuply. Just make sure that it can provide enough Amps to power up all the parts (specially the LED controller if used).
+- Pir Sensor (presence detection)
+- AHT20 Humidity and temperature sensor
+- Colorful-X7 music controller
+- WS2812b led strip (or something similar)
+- 5VDC Relay
+- Cables for external connectors (USB male to female, Ethernet male to female and any 3 pins connector for external LED strips)
+
+**You can build any system of your choice as long as the minimal hardware requirements are met. No need to follow my setup.**
+**If any help is needed building the system, please feel free to reach out.***
+
+
 ## Installation
 #### Downlaod and install Volumio OS on your Raspberry pi 4
 
