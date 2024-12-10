@@ -19,7 +19,7 @@ A RaspberryPi 4 powered simple yet smart music station.
 
 #### Used Hardware
 
-You can use the minimal harware required to replicate the MusicStation
+*The MusicStation is a custom build music unit, from the wood box to the amplifier...*
 
 ##### Minimal
 - Raspberry Pi 4:
