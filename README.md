@@ -19,21 +19,22 @@ A RaspberryPi 4 powered simple yet smart music station.
 
 #### Used Hardware
 
-*The MusicStation is a custom build music unit, from the wood box to the amplifier...*
+*MusicStation is a custom build music unit, from the wood box to the amplifier... it is not necessary to use the same setup I used to make your MusicStation*
+
 
 ##### Minimal
 - Raspberry Pi 4:
   minimum 4Gb.
 - A Touch Screen:
-  Official Raspberry Pi touch screen was used.
+  The Official Raspberry Pi touch screen was used (800x480).
 - A USB DAC:
-  Any cheap usb based Dac should work.
+  Any cheap usb based dac should work.
 - A microphone (Any jack or usb microphone)
 - An amplifier:
-  I used a tube amplifier that I had custom-built a few years prior. Regretfully, I misplaced the schematics for it.
+  I used a tube amplifier that I had custom-built a few years ago. Regretfully, I misplaced the schematics for it.
   However, any amplifier ought to function well with the setup.
 - Passive speakers
-- Power supply (12VDC)
+- Power supply (5VDC)
 
 ##### Optional
 - 12V to 5V DC step down convertor:
@@ -44,7 +45,7 @@ A RaspberryPi 4 powered simple yet smart music station.
 - Colorful-X7 music controller
 - WS2812b led strip (or something similar)
 - 5VDC Relay
-- Cables for external connectors (USB male to female, Ethernet male to female and any 3 pins connector for external LED strips)
+- Cables for external connectors (USB male to female, Ethernet male to female and any 3 pins connector for external LED strips if used)
 
 **As long as you have the bare minimum of hardware (minimal section), you can build whatever system you want. You don't have to adhere to my setup.** 
 **Please get in touch if you need any assistance setting up a system.***
