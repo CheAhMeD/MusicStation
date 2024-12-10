@@ -1,4 +1,4 @@
-# Disclaimers #
+# Disclaimer #
 
 This "project" is made without any pre-planning so it is sort of things (python scripts) added on top of each other to make the whole thing work! 
 The MusicStation project started as very small script to control volumio with vocal commands then it evolved to what you have now. You may notice some inconsistencies in the scripts, that's due to the fact that some things were added later on on top of the original script.
