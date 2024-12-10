@@ -48,7 +48,8 @@ https://developers.volumio.com/SSH%20Connection
 
 #### (Optional) When prompted accept running tinytuya wizard
 
-!!!This step is only required if you have a ![Colorful-X7](https://www.superlightingled.com/colorful-x7-mini-smart-wifi-addressable-rgb-led-music-controller-p-6494.html) device in your installation!!!
+!!!This step is only required if you have a [Colorful-X7][1] device in your installation!!!
+[1]:https://www.superlightingled.com/colorful-x7-mini-smart-wifi-addressable-rgb-led-music-controller-p-6494.html
 follow the steps in install.sh file and make sure you accepted to run the last step (tinytuya wizard).
 if not run:
 ```bash
