@@ -162,7 +162,7 @@ example output:
  5 [Device         ]: USB-Audio - USB PnP Sound Device
                       C-Media Electronics Inc. USB PnP Sound Device at usb-0000:01:00.0-1.3
 ```
-<card number> is 5
+card number is 5
 - Update the sound defaults
 in ~/.asoundrc :
 ```
