@@ -1,0 +1,40 @@
+{
+    "jarvis_commands": [
+      {
+        "cmd_name": "play music",
+        "cmd_action": "volumio play",
+        "cmd_description": "Starts playing music on Volumio!",
+        "cmd_prompt": "Playing music on volumio."
+      },
+      {
+        "cmd_name": "stop playing",
+        "cmd_action": "volumio stop",
+        "cmd_description": "Stops playing music on Volumio!",
+        "cmd_prompt": "Stopping music on volumio."
+      },
+      {
+        "cmd_name": "pause music",
+        "cmd_action": "volumio pause",
+        "cmd_description": "Pauses playing music on Volumio!",
+        "cmd_prompt": "Pausing music on volumio."
+      },
+      {
+        "cmd_name": "clear queue",
+        "cmd_action": "volumio clear",
+        "cmd_description": "Clears volumio queue!",
+        "cmd_prompt": "Clearing Volumio queue."
+      },
+      {
+        "cmd_name": "stop music",
+        "cmd_action": "volumio stop && systemctl stop volumio-kiosk.service",
+        "cmd_description": "Stops Volumio and disable GUI pulgin!",
+        "cmd_prompt": "Stopping Volumio service."
+      },
+      {
+        "cmd_name": "start music player",
+        "cmd_action": "systemctl daemon-reload && systemctl start volumio-kiosk.service",
+        "cmd_description": "Starts Volumio and enable GUI pulgin!",
+        "cmd_prompt": "Starting Volumio service."
+      }
+    ]
+  }
