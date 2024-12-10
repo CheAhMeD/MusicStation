@@ -1,7 +1,8 @@
 # Disclaimer #
 
-This "project" is made without any pre-planning so it is sort of things (python scripts) added on top of each other to make the whole thing work! 
-The MusicStation project started as very small script to control volumio with vocal commands then it evolved to what you have now. You may notice some inconsistencies in the scripts, that's due to the fact that some things were added later on on top of the original script.
+#### This "project" is made without any pre-planning so it is sort of things (python scripts) added on top of each other to make the whole thing work! 
+#### The MusicStation project started as very small script to control volumio with vocal commands then it evolved to what you have now. 
+#### You may notice some inconsistencies in the scripts, that's due to the fact that some things were added later on on top of the original script.
 
 
 # MusicStation (For VolumioOS)
@@ -45,16 +46,9 @@ https://developers.volumio.com/SSH%20Connection
   sudo ./install.sh
 ```
 
-#### follow the steps in the terminal.
-    
-## Manual Installation
+#### (Optional) When prompted accept running tinytuya wizard
 
-#### Manual installation assmuing you already have a Volumio OS installed on a raspberry pi 4 and touch display plugin is also installed!
-
-Connect to your raspberry pi
-
-https://developers.volumio.com/SSH%20Connection
-
+!!!This step is only required if you have a ![Colorful-X7](https://www.superlightingled.com/colorful-x7-mini-smart-wifi-addressable-rgb-led-music-controller-p-6494.html) device in your installation!!!
 follow the steps in install.sh file and make sure you accepted to run the last step (tinytuya wizard).
 if not run:
 ```bash
