@@ -14,7 +14,7 @@ logging.setLoggerClass(colorlog.ColorLogger)
 log = logging.getLogger(APP_NAME)
 
 # Music Controller
-sp107e = Equilizer(
+x7 = Equilizer(
     EQUILIZER_RELAY_PIN, 
     EQUILIZER_DEVICE_ID, 
     EQUILIZER_DEVICE_IP, 
@@ -40,8 +40,8 @@ def startMusicStation():
     # Starting PIR Sensor
     pirSensor.start()
     # Power ON Equilizer
-    sp107e.powerON()
-    sp107e.controller.switch_off()
+    x7.powerON()
+    x7.controller.switch_off()
 
     # Start LEDs animations thread
     jarvis.ledsAnimationThread.start()
@@ -56,7 +56,7 @@ def startMusicStation():
     # GUI main screen
     jarvis.gui.splashScreen.updateProgressMessage(APP_NAME + " Initialization Done!")
     time.sleep(2)
-    sp107e.controller.switch_on()
+    x7.controller.switch_on()
     jarvis.gui.mainLoop()
 
 
@@ -64,7 +64,7 @@ def cleanUp():
     # Clean up and exit
     jarvis.ledsAnimationThread.clearAll()
     pirSensor.stop()
-    sp107e.powerOFF()
+    x7.powerOFF()
     pg.mixer.quit()
     pg.quit()
     sys.exit()
