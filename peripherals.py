@@ -130,13 +130,13 @@ class Equilizer():
             version="3.5"
         )
     # Turn on
-    def powerON(self):
+    def powerOn(self):
         print("[EQUILIZER]: Powering ON!")
         self.isPowered = True
         GPIO.output(self.pin, GPIO.HIGH)
 
     # Turn OFF
-    def powerOFF(self):
+    def powerOff(self):
         print("[EQUILIZER]: Powering OFF!")
         self.isPowered = False
         GPIO.output(self.pin, GPIO.LOW)
