@@ -85,6 +85,12 @@ sudo git clone https://github.com/CheAhMeD/MusicStation.git
 cd /home/volumio/MusicStation
 ```
 
+#### Make the install script executable
+
+```bash
+sudo chmod +x install.sh
+```
+
 #### Install MusicStation with the provided script
 
 ```bash
