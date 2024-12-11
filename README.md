@@ -218,12 +218,13 @@ defaults.pcm.card <card number>
 
 ## Usage/Examples
 
-MusicStation is voice controlled only...
+MusicStation is voice mostly controlled only... Unless the Volumio UI is enabled then you can control the player as normal
 
     1. Say the wake word 'Jarvis'
-    2. Ask anything from Jarvis...
+    2. Ask specific command (from list below)...
+    or ask Jarvis anything (Response from OpenAi)
 
-
+TODO: Add command list in here 
 
 ## Authors
 
