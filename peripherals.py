@@ -144,3 +144,7 @@ class Equilizer():
     # Get the power status
     def getStatus(self):
         return self.isPowered
+
+
+def wizard():
+    pass
