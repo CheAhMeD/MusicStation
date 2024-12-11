@@ -147,4 +147,4 @@ class Equilizer():
 
 
 def wizard():
-    pass
+    print("[EQUILIZER]: wizard()")
