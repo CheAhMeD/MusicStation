@@ -73,10 +73,16 @@ https://developers.volumio.com/SSH%20Connection
   cd
 ```
 
-#### Download the install script
+#### Clone MusicStation repo
 
 ```bash
-  wget 'https://raw.githubusercontent.com/CheAhMeD/MusicStation/refs/heads/main/install.sh?token=GHSAT0AAAAAAC3Q7ZNVGPYC3ZZHUT2HJA5CZ2S36HQ' -O install.sh
+  sudo git clone https://github.com/CheAhMeD/MusicStation.git
+```
+
+#### Navigate to the user directory
+
+```bash
+  cd /home/volumio/MusicStation
 ```
 
 #### Install MusicStation with the provided script
