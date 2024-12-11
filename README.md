@@ -70,25 +70,25 @@ https://developers.volumio.com/SSH%20Connection
 #### Navigate to home directory
 
 ```bash
-  cd
+cd
 ```
 
 #### Clone MusicStation repo
 
 ```bash
-  sudo git clone https://github.com/CheAhMeD/MusicStation.git
+sudo git clone https://github.com/CheAhMeD/MusicStation.git
 ```
 
 #### Navigate to the user directory
 
 ```bash
-  cd /home/volumio/MusicStation
+cd /home/volumio/MusicStation
 ```
 
 #### Install MusicStation with the provided script
 
 ```bash
-  sudo ./install.sh
+sudo ./install.sh
 ```
 
 #### (Optional) When prompted accept running tinytuya wizard
@@ -97,7 +97,7 @@ https://developers.volumio.com/SSH%20Connection
 Follow the steps in install.sh file and make sure you accepted to run the last step (tinytuya wizard).
 if not run:
 ```bash
-  sudo python3 -m tinytuya wizard
+sudo python3 -m tinytuya wizard
 ```
 More info: https://github.com/jasonacox/tinytuya?tab=readme-ov-file#setup-wizard---getting-local-keys
 
@@ -118,8 +118,8 @@ To deploy MusicStation
 ```
 - run the following:
 ```bash
-  cd $install_directory
-  sudo python3 main.py
+cd /home/volumio/MusicStation
+sudo python3 main.py
 ```
 
 
@@ -154,11 +154,11 @@ To deploy MusicStation
 If you require using an external USB Sound card it needs to be set properly:
 - remove pulseaudio 
 ```bash
-  sudo apt-get remove pulseaudio
+sudo apt-get remove pulseaudio
 ```
 - Check sound hardware
 ```bash
-  cat /proc/asound/cards
+cat /proc/asound/cards
 ```
 this should return <card number>
 example output:
@@ -185,7 +185,7 @@ pcm.mic {
 ```
 - Disable the internal (Broadcom) sound card
 ```
-  sudo nano /boot/config.txt
+sudo nano /boot/config.txt
 ```
 update to the following
 ```
@@ -195,7 +195,7 @@ dtparam=audio=off
 ```
 - Set USB Card to default
 ```
-  sudo nano /usr/share/alsa/alsa.conf
+sudo nano /usr/share/alsa/alsa.conf
 ```
 then replace:
 ```
