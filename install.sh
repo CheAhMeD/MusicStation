@@ -35,39 +35,39 @@ setGpioState()
   echo $2 > $MUSIC_STATION_GPIO_PATH/gpio$1/value
 }
 
-sudo apt-get update
-# camera tools
-sudo apt-get install v4l-utils
-# bluetooth tools
-sudo apt-get install bluetooth bluez
+# sudo apt-get update
+# # camera tools
+# sudo apt-get install v4l-utils
+# # bluetooth tools
+# sudo apt-get install bluetooth bluez
 
-# Install Python packages
-echo "Installing Python packages..."
-sudo apt-get -y install python3-pip
-sudo apt-get -y install python3-pygame
+# # Install Python packages
+# echo "Installing Python packages..."
+# sudo apt-get -y install python3-pip
+# sudo apt-get -y install python3-pygame
 
-# Install Python libs
-sudo pip3 install smbus2
-sudo pip3 install colorama
-sudo pip3 install adafruit-circuitpython-neopixel
-sudo pip3 install rpi_ws281x
-sudo pip3 install RPi.GPIO
-sudo pip3 install bmp280
-sudo pip3 install pvporcupine
-sudo pip3 install pyaudio
-sudo pip3 install SpeechRecognition
-sudo pip3 install sounddevice
-sudo pip3 install openai==1.39.0 # version 1.39.0 required!!! otherwise it will give an install error
-sudo pip3 install pycountry
-sudo pip3 install adafruit-circuitpython-led-animation
-sudo pip3 install socketIO-client
-sudo pip3 install bleak
-sudo pip3 install tinytuya
-sudo pip3 install pycryptodome
+# # Install Python libs
+# sudo pip3 install smbus2
+# sudo pip3 install colorama
+# sudo pip3 install adafruit-circuitpython-neopixel
+# sudo pip3 install rpi_ws281x
+# sudo pip3 install RPi.GPIO
+# sudo pip3 install bmp280
+# sudo pip3 install pvporcupine
+# sudo pip3 install pyaudio
+# sudo pip3 install SpeechRecognition
+# sudo pip3 install sounddevice
+# sudo pip3 install openai==1.39.0 # version 1.39.0 required!!! otherwise it will give an install error
+# sudo pip3 install pycountry
+# sudo pip3 install adafruit-circuitpython-led-animation
+# sudo pip3 install socketIO-client
+# sudo pip3 install bleak
+# sudo pip3 install tinytuya
+# sudo pip3 install pycryptodome
 
-# Install fonts
-echo "Installing fonts..."
-sudo cp "$MUSIC_STATION_USER_DIR"/fonts/*.ttf /usr/share/fonts
+# # Install fonts
+# echo "Installing fonts..."
+# sudo cp "$MUSIC_STATION_USER_DIR"/fonts/*.ttf /usr/share/fonts
 
 # Make volumio owner
 echo "Setting ownership..."
