@@ -10,7 +10,7 @@ from adafruit_led_animation.animation.blink import Blink
 from adafruit_led_animation.animation.pulse import Pulse
 from adafruit_led_animation.sequence import AnimationSequence
 from adafruit_led_animation import color
-from tinytuya.Contrib import ColorfulX7Device
+
 
 GPIO.setmode(GPIO.BCM)
 
@@ -85,8 +85,7 @@ class Leds(threading.Thread):
         self.left_strip.deinit()
         self.right_strip.deinit()
 
-
-
+#PIR Sensor
 class PirSensor():
     """ Motion Sensor PIR
     the sensor is hardwired on board.D5 
@@ -113,34 +112,4 @@ class PirSensor():
     def stop(self):
         print("[PIR Sensor] Motion Detection OFF!")
         GPIO.remove_event_detect(self.pin)
-
-class Equilizer():
-    """ 
-        Sound reactive led equilizer controller
-    """
-    def __init__(self, relayPin, devId, devAdr, devKey):
-        # setup the GPIO pin
-        self.isPowered = False
-        self.pin = relayPin
-        GPIO.setup(relayPin, GPIO.OUT)
-        self.controller = ColorfulX7Device.ColorfulX7Device(
-            dev_id=devId, 
-            address=devAdr, 
-            local_key=devKey, 
-            version="3.5"
-        )
-    # Turn on
-    def powerON(self):
-        print("[EQUILIZER]: Powering ON!")
-        self.isPowered = True
-        GPIO.output(self.pin, GPIO.HIGH)
-
-    # Turn OFF
-    def powerOFF(self):
-        print("[EQUILIZER]: Powering OFF!")
-        self.isPowered = False
-        GPIO.output(self.pin, GPIO.LOW)
-    
-    # Get the power status
-    def getStatus(self):
-        return self.isPowered
+        
