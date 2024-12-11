@@ -6,7 +6,6 @@ from api_keys import *
 EQUILIZER_DEVICE_ID  = colorful_id
 EQUILIZER_DEVICE_IP  = colorful_ip
 EQUILIZER_DEVICE_KEY = colorful_key
-EQUILIZER_RELAY_PIN  = 19
 
 # Weather API
 WEATHER_API_KEY = weather_key
