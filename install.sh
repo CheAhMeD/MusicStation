@@ -54,7 +54,7 @@ echo "  Before continuing make sure the steps 1 & 3 described in "
 echo "  https://github.com/jasonacox/tinytuya/tree/master?tab=readme-ov-file#setup-wizard---getting-local-keys"
 echo "  are followed..."
 read -p "Continue? (Y/N): " confirm && [[ $confirm == [yY] || $confirm == [yY][eE][sS] ]] || exit 1
-sudo python3 -m tinytuya wizard
+sudo python3 -c 'import peripherals; peripherals.wizard()'
 
 echo "Don't forget to update settings.py with the API Keys"
 echo "Finished..."
