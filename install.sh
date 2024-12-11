@@ -1,8 +1,8 @@
 #!/bin/bash
 
-MUSIC_STATION_RUN_SCRIPT="/home/volumio/musicstation/main.py"
-MUSIC_STATION_REPO="https://github.com/CheAhMeD/MusicStation.git" 
-MUSIC_STATION_USER_DIR="/home/volumio/musicstation"
+#https://github.com/CheAhMeD/MusicStation.git
+MUSIC_STATION_RUN_SCRIPT="/home/volumio/MusicStation/main.py" 
+MUSIC_STATION_USER_DIR="/home/volumio/MusicStation"
 
 sudo apt-get update
 # camera tools
@@ -33,21 +33,6 @@ sudo pip3 install socketIO-client
 sudo pip3 install bleak
 sudo pip3 install tinytuya
 sudo pip3 install pycryptodome
-
-
-# Create user directories
-echo "Creating user directories (if not exist)..."
-mkdir -p "${MUSIC_STATION_USER_DIR}"
-
-# Fetch repo
-echo "Fetching Jarvis Repo..."
-if [ -d "$MUSIC_STATION_USER_DIR" ]; then
-    cd "$MUSIC_STATION_USER_DIR"
-    echo "Cloning Jarvis repo into $MUSIC_STATION_USER_DIR..."
-    git clone $MUSIC_STATION_REPO
-else
-    echo "Could not create temporary directory for MusicStation repo files!"
-fi
 
 # Install fonts
 echo "Installing fonts..."
