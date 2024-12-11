@@ -4,6 +4,36 @@
 MUSIC_STATION_RUN_SCRIPT="/home/volumio/MusicStation/main.py"
 MUSIC_STATION_API_SCRIPT="/home/volumio/MusicStation/api_keys.py" 
 MUSIC_STATION_USER_DIR="/home/volumio/MusicStation"
+MUSIC_STATION_GPIO_PATH=/sys/class/gpio
+
+X7_GPIO=19
+ON="1"
+OFF="0"
+
+# Utility functions to control GPIOs
+exportPin()
+{
+  if [ ! -e $MUSIC_STATION_GPIO_PATH/gpio$1 ]; then
+    echo "$1" > $MUSIC_STATION_GPIO_PATH/export
+  fi
+}
+
+unexportPin()
+{
+  if [ ! -e $MUSIC_STATION_GPIO_PATH/gpio$1 ]; then
+    echo "$1" > $MUSIC_STATION_GPIO_PATH/unexport
+  fi
+}
+
+setOutput()
+{
+  echo "out" > $MUSIC_STATION_GPIO_PATH/gpio$1/direction
+}
+
+setGpioState()
+{
+  echo $2 > $MUSIC_STATION_GPIO_PATH/gpio$1/value
+}
 
 sudo apt-get update
 # camera tools
@@ -54,7 +84,15 @@ echo "  Before continuing make sure the steps 1 & 3 described in "
 echo "  https://github.com/jasonacox/tinytuya/tree/master?tab=readme-ov-file#setup-wizard---getting-local-keys"
 echo "  are followed..."
 read -p "Continue? (Y/N): " confirm && [[ $confirm == [yY] || $confirm == [yY][eE][sS] ]] || exit 1
+# Turn On the Device
+exportPin $X7_GPIO
+setOutput $X7_GPIO
+setGpioState $X7_GPIO $ON
+# Start tinytuya wizard
 sudo python3 -m tinytuya wizard
+# Turn Off the device
+setGpioState $X7_GPIO $OFF
+unexportPin $X7_GPIO
 
 echo "Don't forget to update settings.py with the API Keys"
 echo "Finished..."
