@@ -146,5 +146,3 @@ class Equilizer():
         return self.isPowered
 
 
-def wizard():
-    print("[EQUILIZER]: wizard()")
