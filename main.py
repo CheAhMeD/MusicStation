@@ -8,19 +8,17 @@ import logging
 import colorlog
 import pygame as pg
 from settings import *
-from peripherals import PirSensor
-from tinytuya.Contrib import ColorfulX7Device
+from peripherals import PirSensor, Equilizer
 
 logging.setLoggerClass(colorlog.ColorLogger)
 log = logging.getLogger(APP_NAME)
 
 # Music Controller
-x7 = ColorfulX7Device.ColorfulX7Device(
-        dev_id=EQUILIZER_DEVICE_ID, 
-        address=EQUILIZER_DEVICE_IP, 
-        local_key=EQUILIZER_DEVICE_KEY, 
-        version="3.5"
-)
+x7 = Equilizer(
+        EQUILIZER_RELAY_PIN, 
+        EQUILIZER_DEVICE_ID, 
+        EQUILIZER_DEVICE_IP, 
+        EQUILIZER_DEVICE_KEY)
 # Start Motion Sensor:
 pirSensor = PirSensor(PIR_PIN)
 
@@ -42,7 +40,8 @@ def startMusicStation():
     # Starting PIR Sensor
     pirSensor.start()
     # Turn on the colorful-x7
-    x7.switch_on()
+    x7.powerOn()
+    x7.controller.switch_off()
     # Start LEDs animations thread
     jarvis.ledsAnimationThread.start()
     # create a thread to read sensors
@@ -56,6 +55,7 @@ def startMusicStation():
     # GUI main screen
     jarvis.gui.splashScreen.updateProgressMessage(APP_NAME + " Initialization Done!")
     time.sleep(2)
+    x7.controller.switch_on()
     jarvis.gui.mainLoop()
 
 
@@ -63,7 +63,7 @@ def cleanUp():
     # Clean up and exit
     jarvis.ledsAnimationThread.clearAll()
     pirSensor.stop()
-    x7.switch_off()
+    x7.powerOff()
     pg.mixer.quit()
     pg.quit()
     sys.exit()
