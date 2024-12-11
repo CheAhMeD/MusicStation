@@ -40,11 +40,11 @@ sudo cp "$MUSIC_STATION_USER_DIR"/fonts/*.ttf /usr/share/fonts
 
 # Make volumio owner
 echo "Setting ownership..."
-chown volumio:volumio "$MUSIC_STATION_USER_DIR"
+sudo chown volumio:volumio "$MUSIC_STATION_USER_DIR"
 
 # Make jarvis script executable
 echo "Making $MUSIC_STATION_RUN_SCRIPT executable..."
-chmod +x "${MUSIC_STATION_RUN_SCRIPT}"
+sudo chmod +x "${MUSIC_STATION_RUN_SCRIPT}"
 
 echo "Starting TinyTuya Setup Wizard..."
 echo "  Before continuing make sure the steps 1 & 3 described in "
