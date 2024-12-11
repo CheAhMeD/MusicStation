@@ -1,7 +1,8 @@
 #!/bin/bash
 #https://github.com/CheAhMeD/MusicStation.git
 
-MUSIC_STATION_RUN_SCRIPT="/home/volumio/MusicStation/main.py" 
+MUSIC_STATION_RUN_SCRIPT="/home/volumio/MusicStation/main.py"
+MUSIC_STATION_API_SCRIPT="/home/volumio/MusicStation/api_keys.py" 
 MUSIC_STATION_USER_DIR="/home/volumio/MusicStation"
 
 sudo apt-get update
@@ -41,11 +42,13 @@ sudo cp "$MUSIC_STATION_USER_DIR"/fonts/*.ttf /usr/share/fonts
 # Make volumio owner
 echo "Setting ownership..."
 sudo chown volumio:volumio "$MUSIC_STATION_USER_DIR"
+sudo chown volumio:volumio "$MUSIC_STATION_API_SCRIPT"
 
 # Make jarvis script executable
 echo "Making $MUSIC_STATION_RUN_SCRIPT executable..."
 sudo chmod +x "${MUSIC_STATION_RUN_SCRIPT}"
 
+read -p "Do you want to setup a Colorful-X7 device? (Y/N): " confirm && [[ $confirm == [yY] || $confirm == [yY][eE][sS] ]] || exit 1
 echo "Starting TinyTuya Setup Wizard..."
 echo "  Before continuing make sure the steps 1 & 3 described in "
 echo "  https://github.com/jasonacox/tinytuya/tree/master?tab=readme-ov-file#setup-wizard---getting-local-keys"
