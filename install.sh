@@ -1,6 +1,6 @@
 #!/bin/bash
-
 #https://github.com/CheAhMeD/MusicStation.git
+
 MUSIC_STATION_RUN_SCRIPT="/home/volumio/MusicStation/main.py" 
 MUSIC_STATION_USER_DIR="/home/volumio/MusicStation"
 
@@ -53,7 +53,7 @@ echo "  are followed..."
 read -p "Continue? (Y/N): " confirm && [[ $confirm == [yY] || $confirm == [yY][eE][sS] ]] || exit 1
 sudo python3 -m tinytuya wizard
 
-
+echo "Don't forget to update settings.py with the API Keys"
 echo "Finished..."
 
 # TODO: finish this later
