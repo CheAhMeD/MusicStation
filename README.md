@@ -110,17 +110,17 @@ More info: https://github.com/jasonacox/tinytuya?tab=readme-ov-file#setup-wizard
 ## Deployment
 
 To deploy MusicStation 
-**- Make sure you have the required API keys.**
-- Copy and paste the keys in the file settings.py
+**Make sure you have the required API keys.**
+- Copy and paste the keys in api_keys.py
 ```python
-  # To change accordingly
-  weather_key  = "OpenWeather_API_KEY_GOES_HERE"  # https://openweathermap.org/api
-  weather_city = "OpenWeather_CITY_GOES_HERE"     # format "City,COUNTRYCODE" eg : "Gent,BE"
-  open_ai_key  = "OpenAI_API_KEY_GOES_HERE"       # https://openai.com/index/openai-api/
-  picovice_key = "PICO_API_KEY_GOES_HERE"         # https://picovoice.ai/docs/api/picovoice-python/
-  colorful_id  = "TUYA_DEVICE_ID_GOES_HERE"       # Get it after running tinytuya wizard
-  colorful_ip  = "TUYA_DEVICE_IP_GOES_HERE"       # Get it after running tinytuya wizard
-  colorful_key = "TUYA_DEVICE_KEY_GOES_HERE"      # Get it after running tinytuya wizard
+# To change accordingly
+weather_key  = "OpenWeather_API_KEY_GOES_HERE"  # https://openweathermap.org/api
+weather_city = "OpenWeather_CITY_GOES_HERE"     # format "City,COUNTRYCODE" eg : "Gent,BE"
+open_ai_key  = "OpenAI_API_KEY_GOES_HERE"       # https://openai.com/index/openai-api/
+picovice_key = "PICO_API_KEY_GOES_HERE"         # https://picovoice.ai/docs/api/picovoice-python/
+colorful_id  = "TUYA_DEVICE_ID_GOES_HERE"       # Get it after running tinytuya wizard
+colorful_ip  = "TUYA_DEVICE_IP_GOES_HERE"       # Get it after running tinytuya wizard
+colorful_key = "TUYA_DEVICE_KEY_GOES_HERE"      # Get it after running tinytuya wizard
 ```
 - run the following:
 ```bash
