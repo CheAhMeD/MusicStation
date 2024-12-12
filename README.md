@@ -47,6 +47,7 @@ A RaspberryPi 4 powered simple yet smart music station.
 - Colorful-X7 music controller
 - WS2812b led strip (or something similar)
 - 5VDC Relay
+- RaspberryPi Camera (or any usb camera)
 - Cables for external connectors (USB male to female, Ethernet male to female and any 3 pins connector for external LED strips if used)
 
 **As long as you have the bare minimum of hardware (minimal section), you can build whatever system you want. You don't have to adhere to my setup.** 
@@ -224,7 +225,20 @@ MusicStation is voice mostly controlled only... Unless the Volumio UI is enabled
     2. Ask specific command (from list below)...
     or ask Jarvis anything (Response from OpenAi)
 
-TODO: Add command list in here 
+TODO: finish the command list in here
+| Example Phrase | Command       | Type          | Description                     |
+| -------------- | ------------- | ------------- | ------------------------------- |
+| *********** | Get OpenAI answer | JARVIS | Any phrase that doesn't compare to the preprogrammed sentences gets send to OepnAI. |
+| Hey Jarvis! | Wake Word | JARVIS | Wake word for personal assitant. |
+| Stop listening! | Sleep Word | JARVIS | Stops the personal assistance until next wake word. |
+| Start a timer! | Start Timer | TIMER | Starts a timer for the specified time (eg 1 minute). |
+| Stop timer! | Stop Timer | TIMER | Stops current timer. |
+| Take a photo! | Take Photo | CAMERA | Takes a photo after 5 seconds. |
+| ***** | ***** | ***** | ***** |
+| ***** | ***** | ***** | ***** |
+| ***** | ***** | ***** | ***** |
+
+
 
 ## Authors
 
@@ -234,7 +248,15 @@ TODO: Add command list in here
 ## Badges
 
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
+
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
+
+## Contribution
+
+In addition to the built-in functions, the community is encouraged to contribute.
+[How to?](https://docs.github.com/en/get-started/exploring-projects-on-github/contributing-to-a-project)
+
+
 
