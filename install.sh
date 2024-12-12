@@ -94,7 +94,7 @@ sudo python3 -m tinytuya wizard
 setGpioState $X7_GPIO $OFF
 unexportPin $X7_GPIO
 
-echo "Don't forget to update settings.py with the API Keys"
+echo "Don't forget to update $MUSIC_STATION_API_SCRIPT with the API Keys"
 echo "Finished..."
 
 # TODO: finish this later
