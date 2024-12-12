@@ -226,12 +226,12 @@ MusicStation is voice mostly controlled only... Unless the Volumio UI is enabled
     or ask Jarvis anything (Response from OpenAi)
 
 TODO: finish the command list in here
-| Example Phrase | Command       | Type          | Description                     |
+| Phrase | Command       | Type          | Description                     |
 | -------------- | ------------- | ------------- | ------------------------------- |
-| *********** | Get OpenAI answer | JARVIS | Any phrase that doesn't compare to the preprogrammed sentences gets send to OepnAI. |
-| Hey Jarvis! | Wake Word | JARVIS | Wake word for personal assitant. |
-| Stop listening! | Sleep Word | JARVIS | Stops the personal assistance until next wake word. |
-| Start a timer! | Start Timer | TIMER | Starts a timer for the specified time (eg 1 minute). |
+| *********** | Ask OpenAI | JARVIS | Any phrase that doesn't compare to the preprogrammed sentences gets send to OepnAI. |
+| Hey Jarvis! | Wake Up | JARVIS | Wake word for personal assitant. |
+| Stop listening! | Sleep | JARVIS | Stops the personal assistance until next wake word. |
+| Start a timer for **n time** | Start Timer | TIMER | Starts a timer for the specified time (eg: "Start a timer for 10 minutes 5 seconds"). |
 | Stop timer! | Stop Timer | TIMER | Stops current timer. |
 | Take a photo! | Take Photo | CAMERA | Takes a photo after 5 seconds. |
 | ***** | ***** | ***** | ***** |
