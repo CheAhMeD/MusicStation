@@ -9,7 +9,7 @@
 
 # MusicStation (For VolumioOS)
 
-![splash](img/UI/logo.png)
+![splash](img/misc/logo.png)
 
 A RaspberryPi 4 powered simple yet smart music station.
 
@@ -17,7 +17,7 @@ A RaspberryPi 4 powered simple yet smart music station.
 ## System Overview
 #### Architecture
 
-![arch](screenshots/music_station_arch.png)
+![arch](music_station_arch.png)
 
 #### Used Hardware
 
