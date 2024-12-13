@@ -107,13 +107,13 @@ unexportPin $X7_GPIO
 # echo -e "${BOLDGREEN}Creating Systemd Unit for MusicStation...${ENDCOLOR}"
 # sudo echo "[Unit]
 # Description=Music Station
-# Wants=volumio.service
-# After=volumio.service
+# Wants=volumio-kiosk.service
+# After=volumio-kiosk.service
 # [Service]
 # Type=simple
 # User=volumio
 # Group=volumio
-# ExecStart=/usr/bin/sudo /usr/bin/python3 $MUSIC_STATION_RUN_SCRIPT > $MUSIC_STATION_USER_DIR/musicstation.log 2>&1
+# ExecStart=/usr/bin/sudo /usr/bin/python3 $MUSIC_STATION_RUN_SCRIPT
 # [Install]
 # WantedBy=multi-user.target
 # " > /lib/systemd/system/musicstation.service
