@@ -45,6 +45,7 @@ setGpioState()
   echo $2 > $MUSIC_STATION_GPIO_PATH/gpio$1/value
 }
 
+echo -e "${BOLDGREEN}Installing Linux packages...${ENDCOLOR}"
 sudo apt-get update
 # camera tools
 sudo apt-get install v4l-utils
