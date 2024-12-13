@@ -10,9 +10,7 @@ MUSIC_STATION_GPIO_PATH=/sys/class/gpio
 RED="31"
 GREEN="32"
 YELLOW="33"
-BLUE="34"
 BOLDGREEN="\e[1;${GREEN}m"
-BOLDBLUE="\e[1;${BLUE}m"
 ITALICYELLOW="\e[3;${YELLOW}m"
 ITALICRED="\e[3;${RED}m"
 ENDCOLOR="\e[0m"
@@ -90,12 +88,12 @@ sudo chown volumio:volumio $MUSIC_STATION_API_SCRIPT
 echo -e "${BOLDGREEN}Making $MUSIC_STATION_RUN_SCRIPT executable...${ENDCOLOR}"
 sudo chmod +x $MUSIC_STATION_RUN_SCRIPT
 
-read -p "${BOLDBLUE}Do you want to setup a Colorful-X7 device? (Y/N): ${ENDCOLOR}" confirm && [[ $confirm == [yY] || $confirm == [yY][eE][sS] ]] || exit 1
+read -p $'\e[1;34mDo you want to setup a Colorful-X7 device? (Y/N): \e[0m' confirm && [[ $confirm == [yY] || $confirm == [yY][eE][sS] ]] || exit 1
 echo "Starting TinyTuya Setup Wizard..."
-echo "${ITALIC} \t Before continuing make sure the steps 1 & 3 described in "
-echo " \t https://github.com/jasonacox/tinytuya/tree/master?tab=readme-ov-file#setup-wizard---getting-local-keys"
-echo " \t are followed...${ENDCOLOR}"
-read -p "${BOLDBLUE}Continue? (Y/N): ${ENDCOLOR}" confirm && [[ $confirm == [yY] || $confirm == [yY][eE][sS] ]] || exit 1
+echo -e "  ${ITALICYELLOW} Before continuing make sure the steps 1 & 3 described in ${ENDCOLOR}"
+echo "  https://github.com/jasonacox/tinytuya/tree/master?tab=readme-ov-file#setup-wizard---getting-local-keys"
+echo -e "  ${ITALICYELLOW}are followed...${ENDCOLOR}"
+read -p $'\e[1;34mContinue? (Y/N): \e[0m' confirm && [[ $confirm == [yY] || $confirm == [yY][eE][sS] ]] || exit 1
 # Turn On the Device
 exportPin $X7_GPIO
 setOutput $X7_GPIO
@@ -106,8 +104,8 @@ sudo python3 -m tinytuya wizard
 setGpioState $X7_GPIO $OFF
 unexportPin $X7_GPIO
 
-echo "${ITALICRED}Don't forget to update $MUSIC_STATION_API_SCRIPT with the API Keys${ENDCOLOR}"
-echo "${BOLDGREEN}Finished...${ENDCOLOR}"
+echo -e "${ITALICRED}NOTE: Don't forget to update $MUSIC_STATION_API_SCRIPT with the API Keys${ENDCOLOR}"
+echo -e "${BOLDGREEN}Finished...${ENDCOLOR}"
 
 # TODO: finish this later
 # TODO: Make jarvis script autostart
