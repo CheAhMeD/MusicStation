@@ -104,6 +104,22 @@ sudo python3 -m tinytuya wizard
 setGpioState $X7_GPIO $OFF
 unexportPin $X7_GPIO
 
+# echo -e "${BOLDGREEN}Creating Systemd Unit for MusicStation...${ENDCOLOR}"
+# sudo echo "[Unit]
+# Description=Music Station
+# Wants=volumio.service
+# After=volumio.service
+# [Service]
+# Type=simple
+# User=volumio
+# Group=volumio
+# ExecStart=/usr/bin/sudo /usr/bin/python3 $MUSIC_STATION_RUN_SCRIPT > $MUSIC_STATION_USER_DIR/musicstation.log 2>&1
+# [Install]
+# WantedBy=multi-user.target
+# " > /lib/systemd/system/musicstation.service
+# sudo systemctl daemon-reload
+# sudo systemctl enable musicstation.service
+
 echo -e "${ITALICRED}NOTE: Don't forget to update $MUSIC_STATION_API_SCRIPT with the API Keys${ENDCOLOR}"
 echo -e "${BOLDGREEN}Finished...${ENDCOLOR}"
 
