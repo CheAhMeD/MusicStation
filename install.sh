@@ -9,10 +9,11 @@ MUSIC_STATION_GPIO_PATH=/sys/class/gpio
 #Coloring 
 RED="31"
 GREEN="32"
-YELLOW="\e[33m"
-BLUE="\e[34m"
+YELLOW="33"
+BLUE="34"
 BOLDGREEN="\e[1;${GREEN}m"
-BOLDBLUE="\e[1;34m"
+BOLDBLUE="\e[1;${BLUE}m"
+ITALICYELLOW="\e[3;${YELLOW}m"
 ITALICRED="\e[3;${RED}m"
 ENDCOLOR="\e[0m"
 
@@ -91,7 +92,7 @@ sudo chmod +x $MUSIC_STATION_RUN_SCRIPT
 
 read -p "${BOLDBLUE}Do you want to setup a Colorful-X7 device? (Y/N): ${ENDCOLOR}" confirm && [[ $confirm == [yY] || $confirm == [yY][eE][sS] ]] || exit 1
 echo "Starting TinyTuya Setup Wizard..."
-echo "${YELLOW} \t Before continuing make sure the steps 1 & 3 described in "
+echo "${ITALIC} \t Before continuing make sure the steps 1 & 3 described in "
 echo " \t https://github.com/jasonacox/tinytuya/tree/master?tab=readme-ov-file#setup-wizard---getting-local-keys"
 echo " \t are followed...${ENDCOLOR}"
 read -p "${BOLDBLUE}Continue? (Y/N): ${ENDCOLOR}" confirm && [[ $confirm == [yY] || $confirm == [yY][eE][sS] ]] || exit 1
