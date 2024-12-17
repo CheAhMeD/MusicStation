@@ -27,7 +27,7 @@ class MusicStationGUI:
     def __init__(self):
         # PyGame screen
         pg.init()
-        self.screen = pg.display.set_mode((SCREEN_WIDTH,SCREEN_HEIGHT))
+        self.screen = pg.display.set_mode((SCREEN_WIDTH,SCREEN_HEIGHT), pg.NOFRAME)
         pg.display.set_caption("MusicStation")
         pg.mouse.set_visible(False)
         self.clock = pg.time.Clock()
