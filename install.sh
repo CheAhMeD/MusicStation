@@ -139,8 +139,8 @@ ExecStart=/usr/bin/startx /etc/X11/Xsession /opt/musicstation.sh -- -nocursor
 [Install]
 WantedBy=multi-user.target
 " > /lib/systemd/system/musicstation.service
-sudo systemctl daemon-reload
-sudo systemctl enable musicstation.service
+systemctl daemon-reload
+systemctl enable musicstation.service
 
 echo -e "${ITALICRED}NOTE: Don't forget to update $MUSIC_STATION_API_SCRIPT with the API Keys${ENDCOLOR}"
 echo -e "${BOLDGREEN}Finished...${ENDCOLOR}"
