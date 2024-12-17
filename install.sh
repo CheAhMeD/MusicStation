@@ -104,21 +104,43 @@ sudo python3 -m tinytuya wizard
 setGpioState $X7_GPIO $OFF
 unexportPin $X7_GPIO
 
-# echo -e "${BOLDGREEN}Creating Systemd Unit for MusicStation...${ENDCOLOR}"
-# sudo echo "[Unit]
-# Description=Music Station
-# Wants=volumio-kiosk.service
-# After=volumio-kiosk.service
-# [Service]
-# Type=simple
-# User=volumio
-# Group=volumio
-# ExecStart=/usr/bin/sudo /usr/bin/python3 $MUSIC_STATION_RUN_SCRIPT
-# [Install]
-# WantedBy=multi-user.target
-# " > /lib/systemd/system/musicstation.service
-# sudo systemctl daemon-reload
-# sudo systemctl enable musicstation.service
+echo -e "${BOLDGREEN}Disabling Volumio Kiosk service ...${ENDCOLOR}"
+systemctl stop volumio-kiosk.service
+systemctl disable volumio-kiosk.service
+systemctl daemon-reload
+
+echo -e "${BOLDGREEN}Fixing MusicStation authentification issue...${ENDCOLOR}"
+sudo echo "#%PAM-1.0
+# Fixing ssh 'auth could not identify password for [username]'
+auth       sufficient   pam_permit.so
+
+@include common-auth
+@include common-account
+@include common-session-noninteractive" > /etc/pam.d/sudo
+
+echo -e "${BOLDGREEN}Creating MusicStation start script...${ENDCOLOR}"
+sudo echo "#!/bin/bash
+openbox-session &
+while true; do
+  /usr/bin/sudo /usr/bin/python3 $MUSIC_STATION_RUN_SCRIPT
+done" > /opt/musicstation.sh
+sudo /bin/chmod +x /opt/musicstation.sh
+
+echo -e "${BOLDGREEN}Creating Systemd Unit for MusicStation...${ENDCOLOR}"
+sudo echo "[Unit]
+Description=Music Station
+Wants=volumio.service
+After=volumio.service
+[Service]
+Type=simple
+User=volumio
+Group=volumio
+ExecStart=/usr/bin/startx /etc/X11/Xsession /opt/musicstation.sh -- -nocursor
+[Install]
+WantedBy=multi-user.target
+" > /lib/systemd/system/musicstation.service
+sudo systemctl daemon-reload
+sudo systemctl enable musicstation.service
 
 echo -e "${ITALICRED}NOTE: Don't forget to update $MUSIC_STATION_API_SCRIPT with the API Keys${ENDCOLOR}"
 echo -e "${BOLDGREEN}Finished...${ENDCOLOR}"
