@@ -106,7 +106,6 @@ unexportPin $X7_GPIO
 
 echo -e "${BOLDGREEN}Disabling Volumio Kiosk service ...${ENDCOLOR}"
 systemctl stop volumio-kiosk.service
-systemctl disable volumio-kiosk.service
 systemctl daemon-reload
 
 echo -e "${BOLDGREEN}Fixing MusicStation authentification issue...${ENDCOLOR}"
