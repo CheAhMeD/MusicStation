@@ -148,7 +148,7 @@ echo -e "${BOLDGREEN}Creating MusicStation start script...${ENDCOLOR}"
 sudo echo "#!/bin/bash
 openbox-session &
 while true; do
-  /usr/bin/sudo /usr/bin/python3 $MUSIC_STATION_RUN_SCRIPT
+  PYTHONUNBUFFERED=1 DISPLAY=:0 /usr/bin/sudo /usr/bin/python3 $MUSIC_STATION_RUN_SCRIPT
 done" > /opt/musicstation.sh
 sudo /bin/chmod +x /opt/musicstation.sh
 
