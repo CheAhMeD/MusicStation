@@ -118,7 +118,7 @@ read -p $'\e[1;34mColorful X7 Device ID: \e[0m' x7Id
 read -p $'\e[1;34mColorful X7 IP Address: \e[0m' x7Ip
 read -p $'\e[1;34mColorful X7 Device Key: \e[0m' x7Key
 
-cat > $MUSIC_STATION_USER_DIR/api_keys.py << EOL
+cat > $MUSIC_STATION_API_SCRIPT << EOL
 weather_key  = "${owmKey}"
 weather_city = "${owmCity}"
 open_ai_key  = "${oaiKey}"
@@ -129,7 +129,7 @@ colorful_key = "${x7Key}"
 EOL
 
 echo -e "${BOLDGREEN}Collected API Keys...${ENDCOLOR}"
-cat $MUSIC_STATION_USER_DIR/api_keys.py
+cat $MUSIC_STATION_API_SCRIPT
 
 # echo -e "${BOLDGREEN}Disabling Volumio Kiosk service ...${ENDCOLOR}"
 # systemctl stop volumio-kiosk.service
