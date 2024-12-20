@@ -88,48 +88,11 @@ sudo chown volumio:volumio $MUSIC_STATION_API_SCRIPT
 echo -e "${BOLDGREEN}Making $MUSIC_STATION_RUN_SCRIPT executable...${ENDCOLOR}"
 sudo chmod +x $MUSIC_STATION_RUN_SCRIPT
 
-# echo -e "${BOLDGREEN}Disabling Volumio Kiosk service ...${ENDCOLOR}"
-# systemctl stop volumio-kiosk.service
-# systemctl daemon-reload
-
-echo -e "${BOLDGREEN}Fixing MusicStation authentification issue...${ENDCOLOR}"
-sudo echo "#%PAM-1.0
-# Fixing ssh 'auth could not identify password for [username]'
-auth       sufficient   pam_permit.so
-
-@include common-auth
-@include common-account
-@include common-session-noninteractive" > /etc/pam.d/sudo
-
-echo -e "${BOLDGREEN}Creating MusicStation start script...${ENDCOLOR}"
-sudo echo "#!/bin/bash
-openbox-session &
-while true; do
-  /usr/bin/sudo /usr/bin/python3 $MUSIC_STATION_RUN_SCRIPT
-done" > /opt/musicstation.sh
-sudo /bin/chmod +x /opt/musicstation.sh
-
-echo -e "${BOLDGREEN}Creating Systemd Unit for MusicStation...${ENDCOLOR}"
-sudo echo "[Unit]
-Description=Music Station
-Wants=volumio.service
-After=volumio.service
-[Service]
-Type=simple
-User=volumio
-Group=volumio
-ExecStart=/usr/bin/startx /etc/X11/Xsession /opt/musicstation.sh -- -nocursor
-[Install]
-WantedBy=multi-user.target
-" > /lib/systemd/system/musicstation.service
-systemctl daemon-reload
-systemctl enable musicstation.service
-
 echo -e "${BOLDGREEN}Starting TinyTuya Setup Wizard...${ENDCOLOR}"
 echo -e "  ${ITALICYELLOW} Before continuing make sure the steps 1 & 3 described in ${ENDCOLOR}"
 echo "  https://github.com/jasonacox/tinytuya/tree/master?tab=readme-ov-file#setup-wizard---getting-local-keys"
 echo -e "  ${ITALICYELLOW}are followed...${ENDCOLOR}"
-read -p $'\e[1;34mContinue? (Y/N): \e[0m' confirm && [[ $confirm == [yY] || $confirm == [yY][eE][sS] ]] || exit 1
+read -p $'\e[1;34mContinue? (Y/N): \e[0m' confirm
 if [[ $confirm == [yY] || $confirm == [yY][eE][sS] ]]; then 
 echo -e "  ${ITALICYELLOW}Setting up tuya device...${ENDCOLOR}"
 # Turn On the Device
@@ -167,6 +130,45 @@ EOL
 
 echo -e "${BOLDGREEN}Collected API Keys...${ENDCOLOR}"
 cat $MUSIC_STATION_USER_DIR/api_keys.py
+
+# echo -e "${BOLDGREEN}Disabling Volumio Kiosk service ...${ENDCOLOR}"
+# systemctl stop volumio-kiosk.service
+# systemctl daemon-reload
+
+echo -e "${BOLDGREEN}Fixing MusicStation authentification issue...${ENDCOLOR}"
+sudo echo "#%PAM-1.0
+# Fixing ssh 'auth could not identify password for [username]'
+auth       sufficient   pam_permit.so
+
+@include common-auth
+@include common-account
+@include common-session-noninteractive" > /etc/pam.d/sudo
+
+echo -e "${BOLDGREEN}Creating MusicStation start script...${ENDCOLOR}"
+sudo echo "#!/bin/bash
+openbox-session &
+while true; do
+  /usr/bin/sudo /usr/bin/python3 $MUSIC_STATION_RUN_SCRIPT
+done" > /opt/musicstation.sh
+sudo /bin/chmod +x /opt/musicstation.sh
+
+echo -e "${BOLDGREEN}Creating Systemd Unit for MusicStation...${ENDCOLOR}"
+sudo echo "[Unit]
+Description=Music Station
+Wants=volumio.service
+After=volumio.service
+[Service]
+Type=simple
+User=volumio
+Group=volumio
+ExecStart=/usr/bin/startx /etc/X11/Xsession /opt/musicstation.sh -- -nocursor
+[Install]
+WantedBy=multi-user.target
+" > /lib/systemd/system/musicstation.service
+sudo chmod 644 /lib/systemd/system/musicstation.service 
+sudo systemctl daemon-reload
+sudo systemctl enable musicstation.service
+sudo systemctl start musicstation.service
 
 echo -e "${BOLDGREEN}Finished...${ENDCOLOR}"
 
