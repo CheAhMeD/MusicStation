@@ -104,9 +104,9 @@ sudo python3 -m tinytuya wizard
 setGpioState $X7_GPIO $OFF
 unexportPin $X7_GPIO
 
-echo -e "${BOLDGREEN}Disabling Volumio Kiosk service ...${ENDCOLOR}"
-systemctl stop volumio-kiosk.service
-systemctl daemon-reload
+# echo -e "${BOLDGREEN}Disabling Volumio Kiosk service ...${ENDCOLOR}"
+# systemctl stop volumio-kiosk.service
+# systemctl daemon-reload
 
 echo -e "${BOLDGREEN}Fixing MusicStation authentification issue...${ENDCOLOR}"
 sudo echo "#%PAM-1.0
