@@ -114,7 +114,7 @@ class PirSensor():
         print("[PIR Sensor] Motion Detection OFF!")
         GPIO.remove_event_detect(self.pin)
 
-class Equilizer():
+class Equalizer():
     """ 
         Sound reactive led equilizer controller
     """
