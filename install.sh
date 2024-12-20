@@ -88,22 +88,6 @@ sudo chown volumio:volumio $MUSIC_STATION_API_SCRIPT
 echo -e "${BOLDGREEN}Making $MUSIC_STATION_RUN_SCRIPT executable...${ENDCOLOR}"
 sudo chmod +x $MUSIC_STATION_RUN_SCRIPT
 
-read -p $'\e[1;34mDo you want to setup a Colorful-X7 device? (Y/N): \e[0m' confirm && [[ $confirm == [yY] || $confirm == [yY][eE][sS] ]] || exit 1
-echo "Starting TinyTuya Setup Wizard..."
-echo -e "  ${ITALICYELLOW} Before continuing make sure the steps 1 & 3 described in ${ENDCOLOR}"
-echo "  https://github.com/jasonacox/tinytuya/tree/master?tab=readme-ov-file#setup-wizard---getting-local-keys"
-echo -e "  ${ITALICYELLOW}are followed...${ENDCOLOR}"
-read -p $'\e[1;34mContinue? (Y/N): \e[0m' confirm && [[ $confirm == [yY] || $confirm == [yY][eE][sS] ]] || exit 1
-# Turn On the Device
-exportPin $X7_GPIO
-setOutput $X7_GPIO
-setGpioState $X7_GPIO $ON
-# Start tinytuya wizard
-sudo python3 -m tinytuya wizard
-# Turn Off the device
-setGpioState $X7_GPIO $OFF
-unexportPin $X7_GPIO
-
 # echo -e "${BOLDGREEN}Disabling Volumio Kiosk service ...${ENDCOLOR}"
 # systemctl stop volumio-kiosk.service
 # systemctl daemon-reload
@@ -141,7 +125,49 @@ WantedBy=multi-user.target
 systemctl daemon-reload
 systemctl enable musicstation.service
 
-echo -e "${ITALICRED}NOTE: Don't forget to update $MUSIC_STATION_API_SCRIPT with the API Keys${ENDCOLOR}"
+echo -e "${BOLDGREEN}Starting TinyTuya Setup Wizard...${ENDCOLOR}"
+echo -e "  ${ITALICYELLOW} Before continuing make sure the steps 1 & 3 described in ${ENDCOLOR}"
+echo "  https://github.com/jasonacox/tinytuya/tree/master?tab=readme-ov-file#setup-wizard---getting-local-keys"
+echo -e "  ${ITALICYELLOW}are followed...${ENDCOLOR}"
+read -p $'\e[1;34mContinue? (Y/N): \e[0m' confirm && [[ $confirm == [yY] || $confirm == [yY][eE][sS] ]] || exit 1
+if [[ $confirm == [yY] || $confirm == [yY][eE][sS] ]]; then 
+echo -e "  ${ITALICYELLOW}Setting up tuya device...${ENDCOLOR}"
+# Turn On the Device
+exportPin $X7_GPIO
+setOutput $X7_GPIO
+setGpioState $X7_GPIO $ON
+# Start tinytuya wizard
+sudo python3 -m tinytuya wizard
+# Turn Off the device
+setGpioState $X7_GPIO $OFF
+unexportPin $X7_GPIO
+else 
+echo -e "${ITALICRED}Skipping Tuya Setup Wizard...${ENDCOLOR}"
+fi
+
+
+echo -e "${BOLDGREEN}Collecting MusicStation API Keys...${ENDCOLOR}"
+read -p $'\e[1;34mOpenWeatherMap API Key: \e[0m' owmKey
+read -p $'\e[1;34mOpenWeatherMap City: \e[0m' owmCity
+read -p $'\e[1;34mOpenAI API Key: \e[0m' oaiKey
+read -p $'\e[1;34mPicovice API Key: \e[0m' pvKey
+read -p $'\e[1;34mColorful X7 Device ID: \e[0m' x7Id
+read -p $'\e[1;34mColorful X7 IP Address: \e[0m' x7Ip
+read -p $'\e[1;34mColorful X7 Device Key: \e[0m' x7Key
+
+cat > $MUSIC_STATION_USER_DIR/api_keys.py << EOL
+weather_key  = "${owmKey}"
+weather_city = "${owmCity}"
+open_ai_key  = "${oaiKey}"
+picovice_key = "${pvKey}"
+colorful_id  = "${x7Id}"
+colorful_ip  = "${x7Ip}"
+colorful_key = "${x7Key}"
+EOL
+
+echo -e "${BOLDGREEN}Collected API Keys...${ENDCOLOR}"
+cat $MUSIC_STATION_USER_DIR/api_keys.py
+
 echo -e "${BOLDGREEN}Finished...${ENDCOLOR}"
 
 # TODO: finish this later
