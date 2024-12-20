@@ -170,8 +170,8 @@ sudo systemctl daemon-reload
 sudo systemctl enable musicstation.service
 sudo systemctl start musicstation.service
 
-echo -e "${BOLDGREEN}Restarting Volumio...${ENDCOLOR}"
-volumio vrestart
+# echo -e "${BOLDGREEN}Restarting Volumio...${ENDCOLOR}"
+# volumio vrestart
 
 echo -e "${BOLDGREEN}Finished...${ENDCOLOR}"
 
