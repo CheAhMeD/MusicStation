@@ -100,9 +100,9 @@ sudo chmod +x install.sh
 sudo ./install.sh
 ```
 
-#### (Optional) When prompted accept running tinytuya wizard
+#### When prompted accept running tinytuya wizard
 
-*!!!This step is only required if you have a [Colorful-X7](https://www.superlightingled.com/colorful-x7-mini-smart-wifi-addressable-rgb-led-music-controller-p-6494.html) device in your music system!!!*
+*!!!This step is required if you have a [Colorful-X7](https://www.superlightingled.com/colorful-x7-mini-smart-wifi-addressable-rgb-led-music-controller-p-6494.html) device in your music system!!!*
 Follow the steps in install.sh file and make sure you accepted to run the last step (tinytuya wizard).
 if not run:
 ```bash
@@ -114,7 +114,8 @@ More info: https://github.com/jasonacox/tinytuya?tab=readme-ov-file#setup-wizard
 
 To deploy MusicStation 
 **Make sure you have the required API keys.**
-- Copy and paste the keys in api_keys.py
+- The API Keys are collected during installation but in case of error (there is no checks done on the keys)
+- you can paste the correct keys in api_keys.py file (located in /home/volumio/MusicStation/api_keys.py)
 ```python
 # To change accordingly
 weather_key  = "OpenWeather_API_KEY_GOES_HERE"  # https://openweathermap.org/api
