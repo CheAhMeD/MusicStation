@@ -2,6 +2,7 @@
 #https://github.com/CheAhMeD/MusicStation.git
 
 MUSIC_STATION_RUN_SCRIPT=/home/volumio/MusicStation/main.py
+MUSIC_STATION_EXIT_SCRIPT=/home/volumio/MusicStation/cleanup.py
 MUSIC_STATION_API_SCRIPT=/home/volumio/MusicStation/api_keys.py
 MUSIC_STATION_USER_DIR=/home/volumio/MusicStation
 MUSIC_STATION_GPIO_PATH=/sys/class/gpio
@@ -162,6 +163,7 @@ Type=simple
 User=volumio
 Group=volumio
 ExecStart=/usr/bin/startx /etc/X11/Xsession /opt/musicstation.sh -- -nocursor
+ExecStop=PYTHONUNBUFFERED=1 /usr/bin/sudo /usr/bin/python3 $MUSIC_STATION_EXIT_SCRIPT
 [Install]
 WantedBy=multi-user.target
 " > /lib/systemd/system/musicstation.service
