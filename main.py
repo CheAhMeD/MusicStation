@@ -8,13 +8,13 @@ import logging
 import colorlog
 import pygame as pg
 from settings import *
-from peripherals import PirSensor, Equilizer
+from peripherals import PirSensor, Equalizer
 
 logging.setLoggerClass(colorlog.ColorLogger)
 log = logging.getLogger(APP_NAME)
 
 # Music Controller
-x7 = Equilizer(
+x7 = Equalizer(
         EQUILIZER_RELAY_PIN, 
         EQUILIZER_DEVICE_ID, 
         EQUILIZER_DEVICE_IP, 
