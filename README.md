@@ -102,7 +102,7 @@ sudo ./install.sh
 
 #### When prompted accept running tinytuya wizard
 
-*!!!This step is required if you have a [Colorful-X7](https://www.superlightingled.com/colorful-x7-mini-smart-wifi-addressable-rgb-led-music-controller-p-6494.html) device in your music system!!!*
+*!!!This step is required if you have a [Colorful-X7](https://www.aliexpress.com/item/1005007870851528.html) device in your music system!!!*
 Follow the steps in install.sh file and make sure you accepted to run the last step (tinytuya wizard).
 if not run:
 ```bash
