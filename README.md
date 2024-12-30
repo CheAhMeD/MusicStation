@@ -229,8 +229,8 @@ MusicStation is voice mostly controlled only... Unless the Volumio UI is enabled
 TODO: finish the command list in here
 | Phrase | Command       | Type          | Description                     |
 | -------------- | ------------- | ------------- | ------------------------------- |
+| Hey Jarvis! | Wake Up | JARVIS | Wake word for personal assitant. (The wake word is required to start a "conversation")|
 | *********** | Ask OpenAI | JARVIS | Any phrase that doesn't compare to the preprogrammed sentences gets send to OpenAI. |
-| Hey Jarvis! | Wake Up | JARVIS | Wake word for personal assitant. |
 | Stop listening! | Sleep | JARVIS | Stops the personal assistance until next wake word. |
 | Start a timer for **n time** | Start Timer | TIMER | Starts a timer for the specified time (eg: "Start a timer for 10 minutes 5 seconds"). |
 | Stop timer! | Stop Timer | TIMER | Stops current timer. |
